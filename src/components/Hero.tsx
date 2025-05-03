@@ -27,41 +27,11 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-screen flex items-center pt-16 overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-dark">
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-          <svg
-            width="100%"
-            height="100%"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            className="opacity-10"
-          >
-            <defs>
-              <linearGradient id="grid-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#FF5F1F" stopOpacity="0.2" />
-                <stop offset="100%" stopColor="#FF7F50" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-            <pattern id="grid" width="8" height="8" patternUnits="userSpaceOnUse">
-              <path
-                d="M 8 0 L 0 0 0 8"
-                fill="none"
-                stroke="url(#grid-gradient)"
-                strokeWidth="0.5"
-              />
-            </pattern>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-          </svg>
-        </div>
-        
-        {/* Animated orbs */}
-        <div
-          ref={orbRef}
-          className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-orange-500/20 to-orange-300/20 rounded-full blur-3xl transition-transform duration-500 ease-out"
-        ></div>
-        <div className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-gradient-to-r from-orange-500/10 to-orange-300/10 rounded-full blur-3xl animate-float"></div>
-      </div>
+      {/* Interactive orb that follows mouse movement */}
+      <div
+        ref={orbRef}
+        className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-orange-500/20 to-orange-300/20 rounded-full blur-3xl transition-transform duration-500 ease-out"
+      ></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
@@ -175,9 +145,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      {/* Decorative code lines */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-dark to-transparent"></div>
     </div>
   );
 };
