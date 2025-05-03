@@ -36,13 +36,13 @@ const FAQItems = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-24 bg-slate-50">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="relative py-24 bg-transparent">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
+          <h2 className="text-3xl font-bold text-white sm:text-4xl gradient-text">
             Frequently asked questions
           </h2>
-          <p className="mt-4 text-lg text-slate-500">
+          <p className="mt-4 text-lg text-gray-300">
             Have a question that's not answered here? Contact our support team.
           </p>
         </div>
@@ -50,11 +50,11 @@ const FAQ = () => {
         <div className="mt-12">
           <Accordion type="single" collapsible className="w-full">
             {FAQItems.map((item, i) => (
-              <AccordionItem key={i} value={`item-${i}`}>
-                <AccordionTrigger className="text-left text-lg font-medium text-slate-900">
+              <AccordionItem key={i} value={`item-${i}`} className="border-gray-700">
+                <AccordionTrigger className="text-left text-lg font-medium text-white hover:text-orange-400 py-4">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-slate-600">
+                <AccordionContent className="text-gray-300 pb-4">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -62,6 +62,9 @@ const FAQ = () => {
           </Accordion>
         </div>
       </div>
+      
+      {/* Orange gradient orb for background effect */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-orange-500/10 to-orange-300/10 rounded-full blur-3xl z-0"></div>
     </section>
   );
 };
